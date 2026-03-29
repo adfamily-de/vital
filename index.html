@@ -1,40 +1,164 @@
-
 <!DOCTYPE html>
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vitalmed Clinic</title>
-    <meta name="description" content="Vitalmed Clinic - Serviço médico de qualidade em Maputo, Moçambique. Cuidado humanizado, equipamentos modernos.">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- BOTÃO DE IDIOMA -->
-    <button class="btn-idioma" id="btn-idioma" onclick="trocarIdioma()">EN</button>
-
-    <!-- WHATSAPP FLUTUANTE -->
     <a href="https://wa.me/258879450000" target="_blank" rel="noopener" class="wp-float">💬</a>
 
-    <!-- CABEÇALHO -->
     <header class="cabecalho">
-        <img src="logo-vitalmed.png" alt="Vitalmed Clinic">
-        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-        <nav>
-            <a href="index.html" data-pt="Início" data-en="Home">Início</a>
-            <a href="sobre.html" data-pt="Sobre" data-en="About">Sobre</a>
-            <a href="servicos.html" data-pt="Serviços" data-en="Services">Serviços</a>
-            <a href="equipe.html" data-pt="Equipe" data-en="Team">Equipe</a>
-            <a href="convenios.html" data-pt="Convênios" data-en="Insurance">Convênios</a>
-            <a href="agendamento.html" data-pt="Agendar" data-en="Book Now">Agendar</a>
-            <a href="depoimentos.html" data-pt="Depoimentos" data-en="Testimonials">Depoimentos</a>
-            <a href="blog.html" data-pt="Blog" data-en="Blog">Blog</a>
-            <a href="faq.html" data-pt="FAQ" data-en="FAQ">FAQ</a>
-            <a href="contato.html" data-pt="Contato" data-en="Contact">Contato</a>
-        </nav>
+        <img src="logo-vitalmed.png" alt="Vitalmed Clinic" class="logo">
+        
+        <div class="cabecalho-direita">
+            <button class="btn-idioma" id="btn-idioma" onclick="trocarIdioma()">EN</button>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            <nav>
+                <a href="index.html" data-pt="Início" data-en="Home">Início</a>
+                <a href="sobre.html" data-pt="Sobre" data-en="About">Sobre</a>
+                <a href="equipe.html" data-pt="Equipe" data-en="Team">Equipe</a>
+                <a href="contato.html" data-pt="Contato" data-en="Contact">Contato</a>
+            </nav>
+        </div>
     </header>
 
-    <!-- SEÇÃO 1: BANNER PRINCIPAL -->
+    <section class="secao-fundo" style="background-image: url('banner-inicio.jpg'); min-height: 70vh;">
+        <div class="conteudo-secao centralizado">
+            <h1 data-pt="Cuidado completo para a sua saúde" data-en="Complete care for your health">Cuidado completo para a sua saúde</h1>
+            <p data-pt="Escolha o serviço que precisa e agende em poucos cliques." data-en="Choose the service you need and book in a few clicks.">Escolha o serviço que precisa e agende em poucos cliques.</p>
+        </div>
+    </section>
+
+    <section class="secao-fundo" style="background-image: url('fundo-servicos.jpg'); min-height: auto; padding: 80px 0;">
+        <div class="conteudo-secao centralizado">
+            <h2 data-pt="Nossos Serviços" data-en="Our Services">Nossos Serviços</h2>
+            
+            <div class="grid-servicos">
+                
+                <a href="servico-consulta-geral.html" class="card-servico destaque" style="background-image: url('img-servico-1.jpg');">
+                    <div class="card-servico-link">
+                        <h3 data-pt="Clínica Geral" data-en="General Practice">Clínica Geral</h3>
+                        <button class="botao-card" data-pt="Marcar Agora" data-en="Book Now">Marcar Agora</button>
+                    </div>
+                </a>
+
+                <a href="servico-exames-sangue.html" class="card-servico destaque" style="background-image: url('img-servico-2.jpg');">
+                    <div class="card-servico-link">
+                        <h3 data-pt="Exames de Sangue" data-en="Blood Tests">Exames de Sangue</h3>
+                        <button class="botao-card" data-pt="Marcar Agora" data-en="Book Now">Marcar Agora</button>
+                    </div>
+                </a>
+
+                <a href="servico-ecografia.html" class="card-servico destaque" style="background-image: url('img-servico-3.jpg');">
+                    <div class="card-servico-link">
+                        <h3 data-pt="Ecografia" data-en="Ultrasound">Ecografia</h3>
+                        <button class="botao-card" data-pt="Marcar Agora" data-en="Book Now">Marcar Agora</button>
+                    </div>
+                </a>
+
+                <a href="servico-pressao.html" class="card-servico" style="background-image: url('img-servico-4.jpg');">
+                    <div class="card-servico-link">
+                        <h3 data-pt="Pressão Arterial" data-en="Blood Pressure">Pressão Arterial</h3>
+                        <button class="botao-card" data-pt="Marcar" data-en="Book">Marcar</button>
+                    </div>
+                </a>
+
+                <a href="servico-glicemia.html" class="card-servico" style="background-image: url('img-servico-5.jpg');">
+                    <div class="card-servico-link">
+                        <h3 data-pt="Glicemia" data-en="Glucose Testing">Glicemia</h3>
+                        <button class="botao-card" data-pt="Marcar" data-en="Book">Marcar</button>
+                    </div>
+                </a>
+
+                <a href="servico-nutricao.html" class="card-servico" style="background-image: url('img-servico-6.jpg');">
+                    <div class="card-servico-link">
+                        <h3 data-pt="Nutrição" data-en="Nutrition">Nutrição</h3>
+                        <button class="botao-card" data-pt="Marcar" data-en="Book">Marcar</button>
+                    </div>
+                </a>
+
+                <a href="servico-vacinas.html" class="card-servico" style="background-image: url('img-servico-7.jpg');">
+                    <div class="card-servico-link">
+                        <h3 data-pt="Vacinas" data-en="Vaccines">Vacinas</h3>
+                        <button class="botao-card" data-pt="Marcar" data-en="Book">Marcar</button>
+                    </div>
+                </a>
+
+                <a href="servico-pediatria.html" class="card-servico" style="background-image: url('img-servico-8.jpg');">
+                    <div class="card-servico-link">
+                        <h3 data-pt="Pediatria" data-en="Pediatrics">Pediatria</h3>
+                        <button class="botao-card" data-pt="Marcar" data-en="Book">Marcar</button>
+                    </div>
+                </a>
+
+                <a href="servico-ginecologia.html" class="card-servico" style="background-image: url('img-servico-9.jpg');">
+                    <div class="card-servico-link">
+                        <h3 data-pt="Ginecologia" data-en="Gynecology">Ginecologia</h3>
+                        <button class="botao-card" data-pt="Marcar" data-en="Book">Marcar</button>
+                    </div>
+                </a>
+
+                <a href="servico-dermatologia.html" class="card-servico" style="background-image: url('img-servico-10.jpg');">
+                    <div class="card-servico-link">
+                        <h3 data-pt="Dermatologia" data-en="Dermatology">Dermatologia</h3>
+                        <button class="botao-card" data-pt="Marcar" data-en="Book">Marcar</button>
+                    </div>
+                </a>
+
+                <a href="servico-ortopedia.html" class="card-servico" style="background-image: url('img-servico-11.jpg');">
+                    <div class="card-servico-link">
+                        <h3 data-pt="Ortopedia" data-en="Orthopedics">Ortopedia</h3>
+                        <button class="botao-card" data-pt="Marcar" data-en="Book">Marcar</button>
+                    </div>
+                </a>
+
+                <a href="servico-psicologia.html" class="card-servico" style="background-image: url('img-servico-12.jpg');">
+                    <div class="card-servico-link">
+                        <h3 data-pt="Psicologia" data-en="Psychology">Psicologia</h3>
+                        <button class="botao-card" data-pt="Marcar" data-en="Book">Marcar</button>
+                    </div>
+                </a>
+
+                <a href="servico-cardiologia.html" class="card-servico" style="background-image: url('img-servico-13.jpg');">
+                    <div class="card-servico-link">
+                        <h3 data-pt="Cardiologia" data-en="Cardiology">Cardiologia</h3>
+                        <button class="botao-card" data-pt="Marcar" data-en="Book">Marcar</button>
+                    </div>
+                </a>
+
+                <a href="servico-pneumologia.html" class="card-servico" style="background-image: url('img-servico-14.jpg');">
+                    <div class="card-servico-link">
+                        <h3 data-pt="Pneumologia" data-en="Pulmonology">Pneumologia</h3>
+                        <button class="botao-card" data-pt="Marcar" data-en="Book">Marcar</button>
+                    </div>
+                </a>
+
+                <a href="servico-oftalmologia.html" class="card-servico" style="background-image: url('img-servico-15.jpg');">
+                    <div class="card-servico-link">
+                        <h3 data-pt="Oftalmologia" data-en="Ophthalmology">Oftalmologia</h3>
+                        <button class="botao-card" data-pt="Marcar" data-en="Book">Marcar</button>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="rodape">
+        <div class="rodape-grid">
+            <div class="rodape-coluna"><h4>Vitalmed Clinic</h4><p data-pt="Serviço médico de qualidade em Maputo." data-en="Quality medical service in Maputo.">Serviço médico de qualidade em Maputo.</p></div>
+            <div class="rodape-coluna"><h4 data-pt="Contacto" data-en="Contact">Contacto</h4><p>📞 +258 87 945 0000</p><p>✉️ info@vitalmedclinic.co.mz</p></div>
+            <div class="rodape-coluna"><h4 data-pt="Endereço" data-en="Address">Endereço</h4><p>Av. Patrice Lumumba, n.°724<br>Bairro do Fomento, Maputo</p></div>
+        </div>
+        <div class="rodape-direitos"><p>© 2025 Vitalmed Clinic.</p></div>
+    </footer>
+    <script src="app.js"></script>
+</body>
+</html>
+```    <!-- SEÇÃO 1: BANNER PRINCIPAL -->
     <section class="secao-fundo" style="background-image: url('banner-inicio.jpg');">
         <div class="conteudo-secao">
             <h1 data-pt="O seu bem-estar começa na Vitalmed" data-en="Your well-being starts at Vitalmed">O seu bem-estar começa na Vitalmed</h1>
