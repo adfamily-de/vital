@@ -5,14 +5,119 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vitalmed Clinic</title>
     <link rel="stylesheet" href="style.css">
+    
+    <!-- Estilos específicos para deixar os botões arredondados e modernos como a referência -->
+    <style>
+        .hero-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: #00b347;
+            color: white;
+            text-decoration: none;
+            padding: 18px 45px;
+            border-radius: 50px;
+            font-size: 20px;
+            font-weight: 800;
+            box-shadow: 0 8px 25px rgba(0, 179, 71, 0.4);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        .hero-btn:hover {
+            background-color: #00913a;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0, 179, 71, 0.5);
+        }
+        .grid-servicos-moderno {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-top: 50px;
+        }
+        @media (max-width: 1024px) { .grid-servicos-moderno { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 600px) { .grid-servicos-moderno { grid-template-columns: 1fr; } }
+        
+        .grid-servicos-moderno .destaque-top { grid-column: span 2; }
+        @media (max-width: 600px) { .grid-servicos-moderno .destaque-top { grid-column: span 1; } }
+
+        .card-servico-moderno {
+            position: relative;
+            height: 220px;
+            border-radius: 20px;
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+        .card-servico-moderno:hover { transform: translateY(-8px) scale(1.02); }
+        .destaque-top { height: 300px; }
+
+        .card-servico-moderno::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; width: 100%; height: 70%;
+            background: linear-gradient(to top, rgba(0,0,0,0.95) 10%, transparent);
+            z-index: 1;
+        }
+
+        .card-servico-moderno .info-card {
+            position: absolute;
+            bottom: 0; left: 0; width: 100%; 
+            padding: 25px;
+            z-index: 2;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+        .info-card h3 { color: #fff; font-size: 18px; font-weight: 700; max-width: 60%; text-shadow: 0 2px 4px rgba(0,0,0,0.5);}
+        .destaque-top .info-card h3 { font-size: 24px; }
+
+        .btn-agendar-card {
+            background-color: #00b347;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        .btn-agendar-card:hover { background-color: #fff; color: #00b347; }
+        .destaque-top .btn-agendar-card { padding: 15px 30px; font-size: 16px; }
+
+        .wp-float {
+            position: fixed;
+            bottom: 25px;
+            left: 25px;
+            z-index: 999;
+            width: 65px;
+            height: 65px;
+            background-color: #25d366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.5);
+            transition: 0.3s;
+        }
+        .wp-float:hover { transform: scale(1.1); }
+        .wp-float svg { width: 38px; height: 38px; fill: #ffffff; }
+    </style>
 </head>
 <body>
 
-    <a href="https://wa.me/258879450000" target="_blank" rel="noopener" class="wp-float">💬</a>
+    <!-- BOTÃO WHATSAPP COM LOGO REAL -->
+    <a href="https://wa.me/258879450000" target="_blank" rel="noopener" class="wp-float">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
 
     <header class="cabecalho">
         <img src="logo-vitalmed.png" alt="Vitalmed Clinic" class="logo">
-        
         <div class="cabecalho-direita">
             <button class="btn-idioma" id="btn-idioma" onclick="trocarIdioma()">EN</button>
             <button class="menu-toggle" onclick="toggleMenu()">☰</button>
@@ -25,16 +130,195 @@
         </div>
     </header>
 
-    <section class="secao-fundo" style="background-image: url('banner-inicio.jpg'); min-height: 70vh;">
+    <!-- BANNER PRINCIPAL ESTILO REFERÊNCIA -->
+    <section class="secao-fundo" style="background-image: url('banner-inicio.jpg'); min-height: 75vh;">
         <div class="conteudo-secao centralizado">
-            <h1 data-pt="Cuidado completo para a sua saúde" data-en="Complete care for your health">Cuidado completo para a sua saúde</h1>
-            <p data-pt="Escolha o serviço que precisa e agende em poucos cliques." data-en="Choose the service you need and book in a few clicks.">Escolha o serviço que precisa e agende em poucos cliques.</p>
+            <h1 data-pt="Agende a sua consulta ou exame online" data-en="Book your consultation or exam online">Agende a sua consulta ou exame online</h1>
+            <p data-pt="Estamos online! Em que podemos te ajudar?" data-en="We are online! How can we help you?">Estamos online! Em que podemos te ajudar?</p>
+            <br>
+            <a href="#servicos" class="hero-btn" data-pt="AGENDAR AGORA" data-en="BOOK NOW">AGENDAR AGORA</a>
         </div>
     </section>
 
-    <section class="secao-fundo" style="background-image: url('fundo-servicos.jpg'); min-height: auto; padding: 80px 0;">
+    <!-- LISTA DE 22 SERVIÇOS -->
+    <section class="secao-fundo" style="background-image: url('fundo-servicos.jpg'); min-height: auto; padding: 80px 0;" id="servicos">
         <div class="conteudo-secao centralizado">
             <h2 data-pt="Nossos Serviços" data-en="Our Services">Nossos Serviços</h2>
+            
+            <div class="grid-servicos-moderno">
+                
+                <!-- 4 MAIS REQUISITADOS (Grandes e em destaque) -->
+                <a href="servico-consulta-geral.html" class="card-servico-moderno destaque-top" style="background-image: url('img-servico-1.jpg');">
+                    <div class="info-card">
+                        <h3 data-pt="Clínica Geral" data-en="General Practice">Clínica Geral</h3>
+                        <button class="btn-agendar-card" data-pt="Agendar" data-en="Book">Agendar</button>
+                    </div>
+                </a>
+
+                <a href="servico-exames-sangue.html" class="card-servico-moderno destaque-top" style="background-image: url('img-servico-2.jpg');">
+                    <div class="info-card">
+                        <h3 data-pt="Exames de Sangue" data-en="Blood Tests">Exames de Sangue</h3>
+                        <button class="btn-agendar-card" data-pt="Agendar" data-en="Book">Agendar</button>
+                    </div>
+                </a>
+
+                <a href="servico-ecografia.html" class="card-servico-moderno destaque-top" style="background-image: url('img-servico-3.jpg');">
+                    <div class="info-card">
+                        <h3 data-pt="Ecografia" data-en="Ultrasound">Ecografia</h3>
+                        <button class="btn-agendar-card" data-pt="Agendar" data-en="Book">Agendar</button>
+                    </div>
+                </a>
+
+                <a href="servico-atestado.html" class="card-servico-moderno destaque-top" style="background-image: url('img-servico-4.jpg');">
+                    <div class="info-card">
+                        <h3 data-pt="Atestado Médico" data-en="Medical Certificate">Atestado Médico</h3>
+                        <button class="btn-agendar-card" data-pt="Agendar" data-en="Book">Agendar</button>
+                    </div>
+                </a>
+
+                <!-- DEMAIS SERVIÇOS (Grid normal) -->
+                <a href="servico-cardiologia.html" class="card-servico-moderno" style="background-image: url('img-servico-5.jpg');">
+                    <div class="info-card">
+                        <h3 data-pt="Cardiologia" data-en="Cardiology">Cardiologia</h3>
+                        <button class="btn-agendar-card" data-pt="Agendar" data-en="Book">Agendar</button>
+                    </div>
+                </a>
+
+                <a href="servico-ginecologia.html" class="card-servico-moderno" style="background-image: url('img-servico-6.jpg');">
+                    <div class="info-card">
+                        <h3 data-pt="Ginecologia" data-en="Gynecology">Ginecologia</h3>
+                        <button class="btn-agendar-card" data-pt="Agendar" data-en="Book">Agendar</button>
+                    </div>
+                </a>
+
+                <a href="servico-urologia.html" class="card-servico-moderno" style="background-image: url('img-servico-7.jpg');">
+                    <div class="info-card">
+                        <h3 data-pt="Urologia" data-en="Urology">Urologia</h3>
+                        <button class="btn-agendar-card" data-pt="Agendar" data-en="Book">Agendar</button>
+                    </div>
+                </a>
+
+                <a href="servico-pediatria.html" class="card-servico-moderno" style="background-image: url('img-servico-8.jpg');">
+                    <div class="info-card">
+                        <h3 data-pt="Pediatria" data-en="Pediatrics">Pediatria</h3>
+                        <button class="btn-agendar-card" data-pt="Agendar" data-en="Book">Agendar</button>
+                    </div>
+                </a>
+
+                <a href="servico-dermatologia.html" class="card-servico-moderno" style="background-image: url('img-servico-9.jpg');">
+                    <div class="info-card">
+                        <h3 data-pt="Dermatologia" data-en="Dermatology">Dermatologia</h3>
+                        <button class="btn-agendar-card" data-pt="Agendar" data-en="Book">Agendar</button>
+                    </div>
+                </a>
+
+                <a href="servico-ortopedia.html" class="card-servico-moderno" style="background-image: url('img-servico-10.jpg');">
+                    <div class="info-card">
+                        <h3 data-pt="Ortopedia" data-en="Orthopedics">Ortopedia</h3>
+                        <button class="btn-agendar-card" data-pt="Agendar" data-en="Book">Agendar</button>
+                    </div>
+                </a>
+
+                <a href="servico-nutricao.html" class="card-servico-moderno" style="background-image: url('img-servico-11.jpg');">
+                    <div class="info-card">
+                        <h3 data-pt="Nutrição" data-en="Nutrition">Nutrição</h3>
+                        <button class="btn-agendar-card" data-pt="Agendar" data-en="Book">Agendar</button>
+                    </div>
+                </a>
+
+                <a href="servico-psicologia.html" class="card-servico-moderno" style="background-image: url('img-servico-12.jpg');">
+                    <div class="info-card">
+                        <h3 data-pt="Psicologia" data-en="Psychology">Psicologia</h3>
+                        <button class="btn-agendar-card" data-pt="Agendar" data-en="Book">Agendar</button>
+                    </div>
+                </a>
+
+                <a href="servico-pneumologia.html" class="card-servico-moderno" style="background-image: url('img-servico-13.jpg');">
+                    <div class="info-card">
+                        <h3 data-pt="Pneumologia" data-en="Pulmonology">Pneumologia</h3>
+                        <button class="btn-agendar-card" data-pt="Agendar" data-en="Book">Agendar</button>
+                    </div>
+                </a>
+
+                <a href="servico-oftalmologia.html" class="card-servico-moderno" style="background-image: url('img-servico-14.jpg');">
+                    <div class="info-card">
+                        <h3 data-pt="Oftalmologia" data-en="Ophthalmology">Oftalmologia</h3>
+                        <button class="btn-agendar-card" data-pt="Agendar" data-en="Book">Agendar</button>
+                    </div>
+                </a>
+
+                <a href="servico-vacinas.html" class="card-servico-moderno" style="background-image: url('img-servico-15.jpg');">
+                    <div class="info-card">
+                        <h3 data-pt="Vacinas" data-en="Vaccines">Vacinas</h3>
+                        <button class="btn-agendar-card" data-pt="Agendar" data-en="Book">Agendar</button>
+                    </div>
+                </a>
+
+                <a href="servico-pressao.html" class="card-servico-moderno" style="background-image: url('img-servico-16.jpg');">
+                    <div class="info-card">
+                        <h3 data-pt="Pressão Arterial" data-en="Blood Pressure">Pressão Arterial</h3>
+                        <button class="btn-agendar-card" data-pt="Agendar" data-en="Book">Agendar</button>
+                    </div>
+                </a>
+
+                <a href="servico-glicemia.html" class="card-servico-moderno" style="background-image: url('img-servico-17.jpg');">
+                    <div class="info-card">
+                        <h3 data-pt="Glicemia" data-en="Glucose Testing">Glicemia</h3>
+                        <button class="btn-agendar-card" data-pt="Agendar" data-en="Book">Agendar</button>
+                    </div>
+                </a>
+
+                <a href="servico-endocrinologia.html" class="card-servico-moderno" style="background-image: url('img-servico-18.jpg');">
+                    <div class="info-card">
+                        <h3 data-pt="Endocrinologia" data-en="Endocrinology">Endocrinologia</h3>
+                        <button class="btn-agendar-card" data-pt="Agendar" data-en="Book">Agendar</button>
+                    </div>
+                </a>
+
+                <a href="servico-neurologia.html" class="card-servico-moderno" style="background-image: url('img-servico-19.jpg');">
+                    <div class="info-card">
+                        <h3 data-pt="Neurologia" data-en="Neurology">Neurologia</h3>
+                        <button class="btn-agendar-card" data-pt="Agendar" data-en="Book">Agendar</button>
+                    </div>
+                </a>
+
+                <a href="servico-otorrino.html" class="card-servico-moderno" style="background-image: url('img-servico-20.jpg');">
+                    <div class="info-card">
+                        <h3 data-pt="Otorrino" data-en="ENT">Otorrino</h3>
+                        <button class="btn-agendar-card" data-pt="Agendar" data-en="Book">Agendar</button>
+                    </div>
+                </a>
+
+                <a href="servico-odontologia.html" class="card-servico-moderno" style="background-image: url('img-servico-21.jpg');">
+                    <div class="info-card">
+                        <h3 data-pt="Odontologia" data-en="Dentistry">Odontologia</h3>
+                        <button class="btn-agendar-card" data-pt="Agendar" data-en="Book">Agendar</button>
+                    </div>
+                </a>
+
+                <a href="servico-checkup.html" class="card-servico-moderno" style="background-image: url('img-servico-22.jpg');">
+                    <div class="info-card">
+                        <h3 data-pt="Check-up Completo" data-en="Full Check-up">Check-up Completo</h3>
+                        <button class="btn-agendar-card" data-pt="Agendar" data-en="Book">Agendar</button>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="rodape">
+        <div class="rodape-grid">
+            <div class="rodape-coluna"><h4>Vitalmed Clinic</h4><p data-pt="Serviço médico de qualidade em Maputo." data-en="Quality medical service in Maputo.">Serviço médico de qualidade em Maputo.</p></div>
+            <div class="rodape-coluna"><h4 data-pt="Contacto" data-en="Contact">Contacto</h4><p>📞 +258 87 945 0000</p><p>✉️ info@vitalmedclinic.co.mz</p></div>
+            <div class="rodape-coluna"><h4 data-pt="Endereço" data-en="Address">Endereço</h4><p>Av. Patrice Lumumba, n.°724<br>Bairro do Fomento, Maputo</p></div>
+        </div>
+        <div class="rodape-direitos"><p>© 2025 Vitalmed Clinic.</p></div>
+    </footer>
+    <script src="app.js"></script>
+</body>
+</html>
+```            <h2 data-pt="Nossos Serviços" data-en="Our Services">Nossos Serviços</h2>
             
             <div class="grid-servicos">
                 
