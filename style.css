@@ -32,7 +32,10 @@ a { text-decoration: none; color: inherit; }
 }
 
 .cabecalho img {
-    height: 45px; /* Tamanho da logo */
+    height: auto; /* Mantém a proporção da imagem, não deforma */
+    max-width: 300px; /* Fica grande e imponente no computador */
+    width: 65%; /* Ocupa 65% do topo no celular para não esconder o menu */
+}
 }
 
 .cabecalho nav {
