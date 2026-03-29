@@ -22,11 +22,16 @@ a { text-decoration: none; color: inherit; }
     position: relative;
     z-index: 100;
 }
-.cabecalho img.logo { height: 50px; }
+.cabecalho img.logo {
+    height: auto;       /* Mantém a altura proporcional (não deforma a imagem) */
+    width: 100%;        /* Obriga a imagem a preencher toda a largura horizontal */
+    max-width: 500px;   /* Segurança: impede que fique gigantesca demais em monitores muito grandes */
+}
+
+/* Garante que o botão de idioma e o menu não esmaguem */
 .cabecalho-direita {
-    display: flex;
-    align-items: center;
-    gap: 15px;
+    flex-shrink: 0;     /* Impede que os botões encolham quando a logo crescer */
+}
 }
 .btn-idioma {
     background: #0056b3;
