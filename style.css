@@ -1,14 +1,17 @@
 .slogan-topo {
+/* SLOGAN LOGO ABAIXO DO NOME */
+.slogan-topo {
     font-size: 13px;
-    text-transform: uppercase;
     letter-spacing: 2px;
     color: #555;
     margin-top: -5px;
-}* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #333; background: #fff; }
-a { text-decoration: none; color: inherit; }
+    white-space: nowrap; /* Mantém numa só linha */
+}
 
+/* Segurança para telemóveis pequenos */
+@media (max-width: 500px) {
+    .slogan-topo { display: none; }
+}
 /* --- CABEÇALHO E LOGO TEXTO --- */
 .cabecalho {
     background: #fff; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center;
