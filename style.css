@@ -1,40 +1,80 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body {
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    color: #333;
-    background-color: #fff;
-}
+body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #333; background: #fff; }
 a { text-decoration: none; color: inherit; }
 
-/* --- CABEÇALHO (Idioma e Menu lado a lado) --- */
+/* --- CABEÇALHO E LOGO TEXTO --- */
 .cabecalho {
-    background-color: #ffffff;
-    padding: 15px 5%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 15px rgba(0,0,0,0.08);
-    position: relative;
-    z-index: 100;
+    background: #fff; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.08); position: relative; z-index: 100;
 }
-.cabecalho img.logo {
-    height: auto;       /* Mantém a altura proporcional (não deforma a imagem) */
-    width: 100%;        /* Obriga a imagem a preencher toda a largura horizontal */
-    max-width: 500px;   /* Segurança: impede que fique gigantesca demais em monitores muito grandes */
+.cabecalho .logo-texto {
+    font-size: clamp(28px, 5vw, 50px); font-weight: 800; letter-spacing: -1px;
+    color: #0a2540; /* Cor do "Vital" e ".Clinic" */
+    white-space: nowrap; transition: opacity 0.3s;
+}
+.cabecalho .logo-texto span { color: #00b347; } /* Cor do "med" */
+.cabecalho .logo-texto:hover { opacity: 0.8; }
+
+.cabecalho-direita { display: flex; align-items: center; gap: 15px; flex-shrink: 0; }
+.btn-idioma { background: #0056b3; color: #fff; border: none; padding: 8px 12px; border-radius: 6px; font-weight: 800; font-size: 13px; cursor: pointer; }
+.cabecalho nav { display: flex; gap: 20px; }
+.cabecalho nav a { font-size: 15px; font-weight: 600; color: #444; transition: color 0.3s; }
+.cabecalho nav a:hover { color: #0056b3; }
+.cabecalho nav a:visited { color: #444; }
+
+.menu-toggle { display: none; background: none; border: none; font-size: 28px; cursor: pointer; color: #333; }
+@media (max-width: 768px) {
+    .menu-toggle { display: block; }
+    .cabecalho-direita { position: relative; }
+    .cabecalho nav { display: none; position: absolute; top: 45px; right: 0; width: 250px; background: #fff; flex-direction: column; padding: 15px; gap: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); border-radius: 8px; }
+    .cabecalho nav.aberto { display: flex; }
 }
 
-/* Garante que o botão de idioma e o menu não esmaguem */
-.cabecalho-direita {
-    flex-shrink: 0;     /* Impede que os botões encolham quando a logo crescer */
-}
-}
-.btn-idioma {
-    background: #0056b3;
+/* --- SEÇÕES DE FUNDO --- */
+.secao-fundo { position: relative; width: 100%; min-height: 100vh; display: flex; align-items: center; background-size: cover; background-position: center; background-attachment: fixed; }
+.secao-fundo::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(0, 30, 60, 0.85), rgba(0, 50, 100, 0.7)); z-index: 1; }
+@media (max-width: 768px) { .secao-fundo { background-attachment: scroll; } }
+.conteudo-secao { position: relative; z-index: 2; color: #fff; width: 100%; padding: 100px 5%; }
+.centralizado { text-align: center; }
+.conteudo-secao h1 { font-size: 48px; font-weight: 800; margin-bottom: 20px; }
+.conteudo-secao h2 { font-size: 36px; font-weight: 700; margin-bottom: 20px; }
+.conteudo-secao p { font-size: 18px; line-height: 1.6; margin-bottom: 30px; opacity: 0.95; }
+@media (max-width: 768px) { .conteudo-secao h1 { font-size: 32px; } .conteudo-secao h2 { font-size: 26px; } }
+
+/* --- BOTÃO PRINCIPAL (AGENDAR AGORA) --- */
+.hero-btn { display: inline-flex; align-items: center; gap: 10px; background: #00b347; color: #fff; padding: 18px 45px; border-radius: 50px; font-size: 20px; font-weight: 800; box-shadow: 0 8px 25px rgba(0,179,71,0.4); transition: 0.3s; border: none; cursor: pointer; }
+.hero-btn:hover { background: #00913a; transform: translateY(-3px); }
+
+/* --- GRID DE SERVIÇOS --- */
+.grid-servicos-moderno { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 50px; }
+@media (max-width: 1024px) { .grid-servicos-moderno { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .grid-servicos-moderno { grid-template-columns: 1fr; } }
+.grid-servicos-moderno .destaque-top { grid-column: span 2; }
+@media (max-width: 600px) { .grid-servicos-moderno .destaque-top { grid-column: span 1; } }
+
+.card-servico-moderno { position: relative; height: 220px; border-radius: 20px; background-size: cover; background-position: center; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: 0.3s; }
+.card-servico-moderno:hover { transform: translateY(-8px) scale(1.02); }
+.destaque-top { height: 300px; }
+.card-servico-moderno::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 70%; background: linear-gradient(to top, rgba(0,0,0,0.95) 10%, transparent); z-index: 1; }
+.card-servico-moderno .info-card { position: absolute; bottom: 0; left: 0; width: 100%; padding: 25px; z-index: 2; display: flex; justify-content: space-between; align-items: flex-end; }
+.info-card h3 { color: #fff; font-size: 18px; font-weight: 700; max-width: 60%; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
+.destaque-top .info-card h3 { font-size: 24px; }
+.btn-agendar-card { background: #00b347; color: #fff; border: none; padding: 12px 24px; border-radius: 50px; font-weight: 700; font-size: 14px; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: 0.3s; white-space: nowrap; }
+.btn-agendar-card:hover { background: #fff; color: #00b347; }
+.destaque-top .btn-agendar-card { padding: 15px 30px; font-size: 16px; }
+
+/* --- WHATSAPP FLUTUANTE --- */
+.wp-float { position: fixed; bottom: 25px; left: 25px; z-index: 999; width: 65px; height: 65px; background: #25d366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 25px rgba(37,211,102,0.5); transition: 0.3s; }
+.wp-float:hover { transform: scale(1.1); }
+.wp-float svg { width: 38px; height: 38px; fill: #fff; }
+
+/* --- RODAPÉ --- */
+.rodape { background: #0a1628; color: #8899aa; padding: 60px 5% 30px; }
+.rodape-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 30px; padding-bottom: 30px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+.rodape-coluna h4 { color: #fff; margin-bottom: 15px; }
+.rodape-coluna p { font-size: 14px; line-height: 1.7; margin-bottom: 8px; }
+.rodape-direitos { text-align: center; font-size: 13px; padding-top: 10px; }    background: #0056b3;
     color: #fff;
     border: none;
     padding: 8px 12px;
