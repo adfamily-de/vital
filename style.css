@@ -1,4 +1,10 @@
-* { margin: 0; padding: 0; box-sizing: border-box; }
+.slogan-topo {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #555;
+    margin-top: -5px;
+}* { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #333; background: #fff; }
 a { text-decoration: none; color: inherit; }
