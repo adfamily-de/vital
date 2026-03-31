@@ -1,28 +1,43 @@
 /* ==========================================
-   VITALMED CLINIC - JAVASCRIPT PRINCIPAL
+   INJETOR AUTOMÁTICO DO HEADER (MÁQUINA DO DRY)
+   Evita ter de editar 22 ficheiros HTML à mão.
    ========================================== */
 
-// --- INJETOR AUTOMÁTICO DO HEADER (Máquina do DRY) ---
 function injetarLogoAutomatico() {
+    // Procura pela imagem antiga da logo no cabeçalho
     const imagemAntiga = document.querySelector('.cabecalho img.logo');
+    
+    // Se encontrar a imagem (ou seja, nas páginas de serviço que ainda têm a imagem)
     if (imagemAntiga) {
+        // 1. Cria uma "caixa" para agrupar a logo e o slogan
         const containerLogo = document.createElement('div');
+
+        // 2. Cria o link com o texto da logo
         const linkTexto = document.createElement('a');
         linkTexto.href = 'index.html';
         linkTexto.className = 'logo-texto';
         linkTexto.innerHTML = 'Vitalmed<span>Clinic</span>';
+
+        // 3. Cria o slogan
         const slogan = document.createElement('p');
         slogan.className = 'slogan-topo';
         slogan.setAttribute('data-pt', 'O parceiro ideal para uma vida saudável');
         slogan.setAttribute('data-en', 'The ideal partner for a healthy life');
         slogan.textContent = 'O parceiro ideal para uma vida saudável';
+
+        // 4. Mete a logo e o slogan dentro da caixa
         containerLogo.appendChild(linkTexto);
         containerLogo.appendChild(slogan);
-        imagemAntiga.parentNode.replaceChild(containerLogo, imagemAntiga);
-        aplicarIdioma(localStorage.getItem('vitalmed_idioma') || 'pt');
-    }
-    document.addEventListener('DOMContentLoaded', injetarLogoAutomatico);
 
+        // 5. A MÁGICA: Substitui a imagem antiga pelo nosso novo texto
+        imagemAntiga.parentNode.replaceChild(containerLogo, imagemAntiga);
+
+        // 6. Força o JS a aplicar o idioma correto (PT/EN) ao novo slogan que acabou de nascer
+        aplicarIdioma(localStorage.getItem('vitalmed_idioma') || 'pt');
+}
+
+// Executa assim que a página abrir
+document.addEventListener('DOMContentLoaded', injetarLogoAutomatico);
 // --- SISTEMA DE IDIOMA ---
 let idioma = localStorage.getItem('vitalmed_idioma') || 'pt';
 
