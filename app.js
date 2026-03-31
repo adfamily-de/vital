@@ -1,64 +1,29 @@
-/* ==========================================
-   INJETOR AUTOMÁTICO DO HEADER (MÁQUINA DO DRY)
-   Evita ter de editar 22 ficheiros HTML à mão.
-   ========================================== */
+/* document.addEventListener("DOMContentLoaded", function() {
+    // 1. Verificar se NÃO estamos na página principal
+    const isIndex = window.location.pathname.includes('index.html') || window.location.pathname === '/' || window.location.pathname.endsWith('/');
 
-function injetarLogoAutomatico() {
-    // Procura pela imagem antiga da logo no cabeçalho
-    const imagemAntiga = document.querySelector('.cabecalho img.logo');
-    
-    // Se encontrar a imagem (ou seja, nas páginas de serviço que ainda têm a imagem)
-    if (imagemAntiga) {
-        // 1. Cria uma "caixa" para agrupar a logo e o slogan
-        const containerLogo = document.createElement('div');
+    // 2. Se for qualquer outra página (os teus 20 serviços), ativa o "MATA-MATA"
+    if (!isIndex) {
+        
+        // Ele procura a primeira secção da página (que é onde colocaste a imagem)
+        // Se usares a classe 'secao-fundo', ele usa essa. Se não achar, apanha a primeira <section> do HTML.
+        const areaDoCabecalho = document.querySelector('.secao-fundo') || document.querySelector('section');
 
-        // 2. Cria o link com o texto da logo
-        const linkTexto = document.createElement('a');
-        linkTexto.href = 'index.html';
-        linkTexto.className = 'logo-texto';
-        linkTexto.innerHTML = 'Vitalmed<span>Clinic</span>';
-
-        // 3. Cria o slogan
-        const slogan = document.createElement('p');
-        slogan.className = 'slogan-topo';
-        slogan.setAttribute('data-pt', 'O parceiro ideal para uma vida saudável');
-        slogan.setAttribute('data-en', 'The ideal partner for a healthy life');
-        slogan.textContent = 'O parceiro ideal para uma vida saudável';
-
-        // 4. Mete a logo e o slogan dentro da caixa
-        containerLogo.appendChild(linkTexto);
-        containerLogo.appendChild(slogan);
-
-        // 5. A MÁGICA: Substitui a imagem antiga pelo nosso novo texto
-        imagemAntiga.parentNode.replaceChild(containerLogo, imagemAntiga);
-
-        // 6. Força o JS a aplicar o idioma correto (PT/EN) ao novo slogan que acabou de nascer
-        aplicarIdioma(localStorage.getItem('vitalmed_idioma') || 'pt');
-}
-
-// Executa assim que a página abrir
-document.addEventListener('DOMContentLoaded', injetarLogoAutomatico);
-// --- SISTEMA DE IDIOMA ---
-let idioma = localStorage.getItem('vitalmed_idioma') || 'pt';
-
-function iniciarIdioma() {
-    aplicarIdioma(idioma);
-    document.getElementById('btn-idioma').textContent = idioma === 'pt' ? 'EN' : 'PT';
-}
-
-function trocarIdioma() {
-    idioma = idioma === 'pt' ? 'en' : 'pt';
-    localStorage.setItem('vitalmed_idioma', idioma);
-    document.getElementById('btn-idioma').textContent = idioma === 'pt' ? 'EN' : 'PT';
-    aplicarIdioma(idioma);
-}
-
-function aplicarIdioma(lang) {
-    document.querySelectorAll('[data-pt]').forEach(function(el) {
-        let texto = el.getAttribute('data-' + lang);
-        if (texto) {
-            if (el.tagName === 'INPUT') el.placeholder = texto;
-            else el.innerHTML = texto;
+        if (areaDoCabecalho) {
+            // ANULAÇÃO TOTAL: O innerHTML limpa absolutamente TUDO o que está lá dentro.
+            // Qualquer <img>, <h1>, <div> que tenha posto lá, some da existência.
+            areaDoCabecalho.innerHTML = `
+                <div class="conteudo-secao centralizado">
+                    <h1 data-pt="Agende a sua consulta ou exame online" data-en="Book your consultation or exam online">Agende a sua consulta ou exame online</h1>
+                    <p data-pt="Estamos online! Em que podemos te ajudar?" data-en="We are online! How can we help you?">Estamos online! Em que podemos te ajudar?</p>
+                    <br>
+                    <a href="index.html#servicos" class="hero-btn" data-pt="AGENDAR AGORA" data-en="BOOK NOW">AGENDAR AGORA</a>
+                </div>
+            `;
+            
+            // Força o fundo e o tamanho para ficarem idênticos à página principal
+            areaDoCabecalho.style.backgroundImage = "url('banner-inicio.jpg')";
+            areaDoCabecalho.style.minHeight = "75vh";
         }
     });
 }
